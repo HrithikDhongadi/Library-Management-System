@@ -12,15 +12,30 @@ namespace Library_Management_System
         SqlCommand cmd;
         SqlDataReader dr;
 
-        private void getData()
+        private String getUsername()
         {
             // Fetch dat from database
             con.Open();
-            String syntax = "SELECT value FROM systemTable WHERE Property = UserName";
+            String syntax = "SELECT value FROM systemTable WHERE Property = 'UserName'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
-            MessageBox.Show("" + dr.ToString());
+            String temp = dr[0].ToString();
+            con.Close();
+            return temp;
+        }
+
+        private String getPassword()
+        {
+            // Fetch dat from database
+            con.Open();
+            String syntax = "SELECT value FROM systemTable WHERE Property = 'Password'";
+            cmd = new SqlCommand(syntax, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            String temp = dr[0].ToString();
+            con.Close();
+            return temp;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -35,8 +50,7 @@ namespace Library_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            getData();
-            String Uname="1", Upass="1", name, pass;
+            String Uname=getUsername(), Upass=getPassword(), name, pass;
             name = textBox1.Text;
             pass = textBox2.Text;
 
