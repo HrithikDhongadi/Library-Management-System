@@ -8,7 +8,7 @@ namespace Library_Management_System
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database.mdf\";Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"E:\\My Files\\College\\Projects\\DBMS\\Library Management System\\Library Management System\\Library Management System\\Database.mdf\";Integrated Security=True");
         SqlCommand cmd;
         SqlDataReader dr;
 
@@ -16,7 +16,7 @@ namespace Library_Management_System
         {
             // Fetch dat from database
             con.Open();
-            String syntax = "SELECT value FROM systemTable WHERE Property = UserName";
+            String syntax = "SELECT value FROM systemTable WHERE Property = 'UserName'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
