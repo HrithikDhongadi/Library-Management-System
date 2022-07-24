@@ -58,7 +58,9 @@ namespace Library_Management_System
             {
                 //Login
                 label4.Hide();
-                MessageBox.Show("Login Success");
+                AppBody obj = new AppBody();
+                this.Hide();
+                obj.Show();
             }
             else
             {
