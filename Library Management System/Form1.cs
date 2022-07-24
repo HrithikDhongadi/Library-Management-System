@@ -16,7 +16,7 @@ namespace Library_Management_System
         {
             // Fetch dat from database
             con.Open();
-            String syntax = "SELECT value FROM systemTable WHERE Property = 'UserName'";
+            String syntax = "SELECT value FROM systemTable WHERE Property = UserName";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
